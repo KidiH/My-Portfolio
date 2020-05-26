@@ -7,3 +7,14 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+li {
+  display: inline;
+  word-spacing: 40px;
+}
+
+.top-nav-bar {
+    text-align: center;
+    padding: 25px;
+    background-color: #696773;
+}
