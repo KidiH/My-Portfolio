@@ -77,7 +77,22 @@ h1 {
   
 }
 
+.content-right {
+    height: 15%;
+    width: 35%;
+    float: right;
+    padding: 20px;
+    margin-right: 35px;
+}
 
+.content-left {
+    height: 15%;
+    width: 35%;
+
+    float: left;
+    padding: 20px;
+    margin-left: 35px;
+}
 
 .bottom-nav-bar {
     text-align: center;
