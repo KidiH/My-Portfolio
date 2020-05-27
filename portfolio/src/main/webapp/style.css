@@ -1,13 +1,20 @@
+/*A CSS file to document the styles applied to the different html elements in my protfolio website. */
+
+/* Formats lists to appear horizontally with no bullet points and a set spacing in between. */
 li {
     display: inline;
     word-spacing: 40px;
 }
 
+/* Format the style of the navigation bar. */
 .top-nav-bar {
     text-align: center;
     padding: 25px;
     background-color: #696773;
 }
+
+/*content1, content2, and content2 are stylings for div elements in the HOME page 
+to span the entire height and width of the screen. */
 
 #content1 {
     width: 100%;
@@ -30,19 +37,21 @@ li {
     color: #FDFFFC;
 }
 
+/* Prevents a line break from appearing in between paragraphs and headings with other html elements. */
+
 h1,
 p {
     margin: 0;
 }
+
+/* TODO: edit this container to be more stylistic. */
 
 #greeting-container {
     margin-top: 20px;
 }
 
 
-h1 {
-    text-align: center;
-}
+/* Styling for the profile image. */
 
 img {
     border-radius: 50%;
@@ -57,7 +66,7 @@ h1 {
     text-align: center;
 }
 
-
+/* A div container for the ABOUT page that demarks the entirety of the body. */
 
 .parent-content {
     height: 100%;
@@ -65,17 +74,22 @@ h1 {
     position:  relative;
 }
 
+/* Styling for the div enclosing the content of the about page. 
+Aids in the process of centering the content vertically and horizontally. */
+
 .wrapper {
-  height: 50%;
-  width: 50%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
   
 }
+
+/* Styling for inner html div components that are to have the items/elements aligned to the right of the pages. */
 
 .content-right {
     height: 15%;
@@ -85,14 +99,27 @@ h1 {
     margin-right: 35px;
 }
 
+/* Styling for inner html div components that are to have the items/elements aligned to the left of the pages. */
+
 .content-left {
     height: 15%;
     width: 35%;
-
     float: left;
     padding: 20px;
     margin-left: 35px;
 }
+
+/* Styling for inner html div components to enclose the entirety of the screen.
+Also, encase the inner html components with a border. */
+
+.content-middle{
+  height: 100%;
+  width: 100%;
+  border: 3px solid black;
+  
+}
+
+/* Styling for foot navigation bar to be used at the bottom of the pages. */
 
 .bottom-nav-bar {
     text-align: center;
