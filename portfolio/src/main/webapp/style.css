@@ -1,13 +1,27 @@
+/* This is a style sheet for the components of the html pages. */
+
+/*Formats lists to appear in straight line without bullets*/
 li {
   display: inline;
   word-spacing: 40px;
 }
+
+/*Initially created navigation bar*/
 
 .top-nav-bar {
     text-align: center;
     padding: 25px;
     background-color: #696773;
 }
+
+/*Sets the font style of the links on the navigation bar*/
+
+.navbar-nav a {
+  font-family: 'Merriweather', serif;
+}
+
+/*The styling below for "contentx" are stylings of a div element to span the whole screen at a time. 
+Used to showcase a snippet of one part of the website. */
 
 #content1 {
   width: 100%;
@@ -21,6 +35,11 @@ li {
   height: 743px;
   background-color: #212D40;
   color: #DEE2FF;
+  background-image: url("/images/content1.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 
 #content3 {
@@ -30,7 +49,15 @@ li {
   color: #FDFFFC;
 }
 
-h1, p{
+/* Centers the name on the index.html file centerally */
+
+.name{
+    flex: 0 120px 240px;
+}
+
+/* Removes the line break between h1, h2, and p components with other html components */
+
+h1, p, h2{
     margin:0;
 }
 
