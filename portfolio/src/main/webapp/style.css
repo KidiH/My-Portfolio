@@ -28,6 +28,9 @@ Used to showcase a snippet of one part of the website. */
   height: 743px;
   background-color: #EDC4B3;
   color: #ECF8F8;
+  background-image: url("/images/content2.jpg");
+  background-size: cover;
+  position: relative;
 }
 
 #content2 {
@@ -55,11 +58,15 @@ Used to showcase a snippet of one part of the website. */
     flex: 0 120px 240px;
 }
 
-/* Removes the line break between h1, h2, and p components with other html components */
 
-h1, p, h2{
+
+/* Removes the line break between h1, h3, and p components with other html components */
+
+h1, p, h4{
     margin:0;
 }
+
+
 
 #greeting-container {
   margin-top: 20px;
