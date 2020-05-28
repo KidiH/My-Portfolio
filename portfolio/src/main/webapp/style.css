@@ -91,6 +91,16 @@ wrapper {
     margin-left: 35px;
 }
 
+/* Size and round the profile picture */
+img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 /* Removes the line break between h1, h3, and p components with other html components */
 
