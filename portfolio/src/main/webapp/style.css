@@ -55,6 +55,25 @@ Used to showcase a snippet of one part of the website. */
   position: relative;
 }
 
+#content4 {
+    width: 100%;
+  height: 743px;
+  background-color: #BEE3DB;
+  color: #212d40;
+  background-image: url("/images/content4.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+#content5 {
+  width: 100%;
+  height: 743px;
+  background-color: #BEE3DB;
+  background-image: url("/images/content5.jpg");
+  background-size: cover;
+  position: relative;
+}
+
 /* Centers the name on the index.html file centerally */
 
 .name{
