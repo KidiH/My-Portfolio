@@ -58,6 +58,38 @@ Used to showcase a snippet of one part of the website. */
     flex: 0 120px 240px;
 }
 
+/*Styling for a div component that wraps around the actual items/elements of the snippet portion. */
+
+wrapper {
+  height: 321px;
+  width: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+ 
+/*Styling for a div component to align to the right. */
+
+.content-right {
+    height: 15%;
+    width: 35%;
+    float: right;
+    padding: 20px;
+    margin-right: 35px;
+}
+ 
+/*Styling for a div component to align to the left. */
+
+.content-left {
+    height: 15%;
+    width: 35%;
+    float: left;
+    padding: 20px;
+    margin-left: 35px;
+}
 
 
 /* Removes the line break between h1, h3, and p components with other html components */
