@@ -2,33 +2,86 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+
+    <!--Stylesheets from bootstrap and materialize. Used to incorporate the pre-made templates offered by the
+    two sites. -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
+
   <body>
-    <div class="top-nav-bar"> 
-        <ul> 
-            <li> HOME </li>
-            <li> ABOUT </li>
-            <li> PROJECTS </li>
-            <li> BLOG </li>
-            <li> CONTACT </li>
-        </ul>
-    </div>
+
+      <!--The navigation bar. Source: Bootstrap -->
+
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active text-dark" href="index.html">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="projects.html">PROJECT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="blog.html">BLOG</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">CONTACT</a>
+      </li>
+    </ul>
+
+<!--Div components dedicated to give a snippet of the about page. -->
+
     <div id="content2"> 
-        <h1>Kidist Alemu</h1>
+      <h1>Kidist Alemu</h1>
       <p>This is my portfolio.</p>
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
     </div>
+
+<!--Div components dedicated to give a snippet of the Project page. -->
+
     <div id="content1">
-        <p></p>
-        
+      <p></p>  
     </div>
+
+  <!--Div components dedicated to give a snippet of the Blog page. -->  
     <div id = "content3">
-        <p></p>
+      <p></p>
     </div>
+
+    <!--A footer to organize the different links with-in the page and to external social media profiles. -->
+    
+    <footer class="page-footer blue-grey darken-4">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          </div>
+
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Find me on </h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">LinkdIn</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-copyright">
+        <div class="container">
+            © 2020 Copyright Text
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
