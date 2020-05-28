@@ -57,7 +57,7 @@ Used to showcase a snippet of one part of the website. */
 
 #content4 {
     width: 100%;
-  height: 743px;
+  height: 950px;
   background-color: #BEE3DB;
   color: #212d40;
   background-image: url("/images/content4.jpg");
@@ -121,6 +121,19 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Image formating for the images in the body of the webpage.*/
+in-img{
+    height: 300px;
+    width: 275px;
+    display: block;
+}
+
+/*Sets the background image to be semi-transparent. */
+
+.transparent{
+  opacity: 0.5;
 }
 
 /*Font format for the text in the main body of the pages. */
