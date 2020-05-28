@@ -1,58 +1,124 @@
-/*A CSS file to document the styles applied to the different html elements in my protfolio website. */
-
-/* Formats lists to appear horizontally with no bullet points and a set spacing in between. */
-li {
-    display: inline;
-    word-spacing: 40px;
+/* This is a style sheet for the components of the html pages. */
+ 
+/*Formats lists to appear in straight line without bullets*/
+ul, li{
+  display: inline;
+  word-spacing: 40px;
 }
-
-/* Format the style of the navigation bar. */
+ 
+/*Initially created navigation bar*/
+ 
 .top-nav-bar {
     text-align: center;
     padding: 25px;
     background-color: #696773;
 }
-
-/*content1, content2, and content2 are stylings for div elements in the HOME page 
-to span the entire height and width of the screen. */
-
+ 
+/*Sets the font style of the links on the navigation bar*/
+ 
+.navbar-nav a {
+  font-family: 'Merriweather', serif;
+}
+ 
+/*The styling below for "contentx" are stylings of a div element to span the whole screen at a time. 
+Used to showcase a snippet of one part of the website. */
+ 
 #content1 {
-    width: 100%;
-    height: 743px;
-    background-color: #EDC4B3;
-    color: #ECF8F8;
+  width: 100%;
+  height: 743px;
+  background-color: #EDC4B3;
+  color: #ECF8F8;
+  width: 100%;
+  height: 743px;
+  background-color: #EDC4B3;
+  color: #ECF8F8;
+  background-image: url("/images/content2.jpg");
+  background-size: cover;
+  position: relative;
 }
-
+ 
 #content2 {
-    width: 100%;
-    height: 743px;
-    background-color: #212D40;
-    color: #DEE2FF;
+  width: 100%;
+  height: 743px;
+  background-color: #212D40;
+  color: #DEE2FF;
+  background-image: url("/images/content1.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
-
+ 
 #content3 {
-    width: 100%;
-    height: 743px;
-    background-color: #BEE3DB;
-    color: #FDFFFC;
+  width: 100%;
+  height: 743px;
+  background-color: #BEE3DB;
+  color: #212d40;
+  background-image: url("/images/content3.jpg");
+  background-size: cover;
+  position: relative;
 }
-
-/* Prevents a line break from appearing in between paragraphs and headings with other html elements. */
-
-h1,
-p {
-    margin: 0;
+ 
+#content4 {
+  width: 100%;
+  height: 950px;
+  background-color: #BEE3DB;
+  color: #212d40;
+  background-image: url("/images/content4.jpg");
+  background-size: cover;
+  position: relative;
 }
-
-/* TODO: edit this container to be more stylistic. */
-
-#greeting-container {
-    margin-top: 20px;
+ 
+#content5 {
+  width: 100%;
+  height: 743px;
+  background-color: #BEE3DB;
+  background-image: url("/images/content5.jpg");
+  background-size: cover;
+  position: relative;
 }
-
-
-/* Styling for the profile image. */
-
+ 
+ 
+/* Centers the name on the index.html file */
+ 
+.name{
+    flex: 0 120px 240px;
+}
+ 
+/*Styling for a div component that wraps around the actual items/elements of the snippet portion. */
+ 
+wrapper {
+  height: 321px;
+  width: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+ 
+/*Styling for a div component to align to the right. */
+ 
+.content-right {
+    height: 15%;
+    width: 35%;
+    float: right;
+    padding: 20px;
+    margin-right: 35px;
+}
+ 
+/*Styling for a div component to align to the left. */
+ 
+.content-left {
+    height: 15%;
+    width: 35%;
+    float: left;
+    padding: 20px;
+    margin-left: 35px;
+}
+ 
+/* Size and round the profile picture */
 img {
     border-radius: 50%;
     height: 150px;
@@ -61,71 +127,80 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
-
+ 
+/* Image formating for the images in the body of the webpage.*/
+in-img{
+    height: 300px;
+    width: 275px;
+    display: block;
+}
+ 
+/* Size and round the social media icons on footer. */
+.img-icon {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+ 
+/*Sets the background image to be semi-transparent. */
+ 
+.transparent{
+  opacity: 0.5;
+}
+ 
+/*Font format for the text in the main body of the pages. */
+.body-text{
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif; 
+    font-size: 150%;
+}
+ 
+ /*Font format for the headings in the snippet portions. */
+.subpage-head{
+    text-align: center;
+    font-family: Verdana, sans-serif
+}
+ 
+ 
+/* Removes the line break between h1, h3, and p components with other html components */
+ 
+h1, p, h4, h3{
+    margin:0;
+}
+ 
+/*Indents html components to the left. */ 
+.left-align{
+  margin-left: 35px;
+}
+ 
+/*Indents html components to the right. */
+.right-align{
+  margin-right: 35px;
+}
+ 
+ 
+#greeting-container {
+    margin-top: 20px;
+}
+ 
+ 
 h1 {
     text-align: center;
 }
-
-/* A div container for the ABOUT page that demarks the entirety of the body. */
-
+ 
 .parent-content {
     height: 100%;
     width: 100%;
     position:  relative;
 }
-
-/* Styling for the div enclosing the content of the about page. 
-Aids in the process of centering the content vertically and horizontally. */
-
+ 
 .wrapper {
-    height: 50%;
-    width: 50%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
   
-}
-
-/* Styling for inner html div components that are to have the items/elements aligned to the right of the pages. */
-
-.content-right {
-    height: 15%;
-    width: 35%;
-    float: right;
-    padding: 20px;
-    margin-right: 35px;
-}
-
-/* Styling for inner html div components that are to have the items/elements aligned to the left of the pages. */
-
-.content-left {
-    height: 15%;
-    width: 35%;
-    float: left;
-    padding: 20px;
-    margin-left: 35px;
-}
-
-/* Styling for inner html div components to enclose the entirety of the screen.
-Also, encase the inner html components with a border. */
-
-.content-middle{
-  height: 100%;
-  width: 100%;
-  border: 3px solid black;
-  
-}
-
-/* Styling for foot navigation bar to be used at the bottom of the pages. */
-
-.bottom-nav-bar {
-    text-align: center;
-    padding: 25px;
-    width: 100%;
-    height: 90px;
-    background-color: #000000;
-    color: #FFFFFF;
 }
