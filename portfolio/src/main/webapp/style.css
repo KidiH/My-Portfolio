@@ -1,7 +1,7 @@
 /* This is a style sheet for the components of the html pages. */
 
 /*Formats lists to appear in straight line without bullets*/
-li {
+ul, li{
   display: inline;
   word-spacing: 40px;
 }
@@ -74,6 +74,7 @@ Used to showcase a snippet of one part of the website. */
   position: relative;
 }
 
+
 /* Centers the name on the index.html file centerally */
 
 .name{
@@ -128,6 +129,13 @@ in-img{
     height: 300px;
     width: 275px;
     display: block;
+}
+
+/* Size and round the social media icons on footer. */
+.img-icon {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
 }
 
 /*Sets the background image to be semi-transparent. */
