@@ -101,6 +101,18 @@ img {
     margin-right: auto;
 }
 
+/*Font format for the text in the main body of the pages. */
+.body-text{
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif; 
+    font-size: 150%;
+}
+ 
+ /*Font format for the headings in the snippet portions. */
+.subpage-head{
+    text-align: center;
+    font-family: Verdana, sans-serif
+}
+
 
 /* Removes the line break between h1, h3, and p components with other html components */
 
