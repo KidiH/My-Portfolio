@@ -2,33 +2,213 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+
+    <!--Stylesheets from bootstrap and materialize. Used to incorporate the pre-made templates offered by the
+    two sites. -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
+
   <body>
-    <div class="top-nav-bar"> 
-        <ul> 
-            <li> HOME </li>
-            <li> ABOUT </li>
-            <li> PROJECTS </li>
-            <li> BLOG </li>
-            <li> CONTACT </li>
-        </ul>
-    </div>
+
+      <!--The navigation bar. Source: Bootstrap -->
+
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active text-dark" href="index.html">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="projects.html">PROJECT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="blog.html">BLOG</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">CONTACT</a>
+      </li>
+    </ul>
+
+<!--Div components dedicated to give a snippet of the about page. -->
+
     <div id="content2"> 
-        <h1>Kidist Alemu</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <h1 class="name">Kidist Alemu</h1>
     </div>
+
+<!--Div components dedicated to give a snippet of the Project page. -->
+
     <div id="content1">
-        <p></p>
-        
+      <div class="wrapper">
+        <br>
+        <h3 class="subpage-head">
+          ABOUT ME
+        </h3> <br>
+        <img src="/images/IMG_0111.jpeg"><br>
+        <div class="content-left">
+          <p class="body-text">
+          My name is Kidist Alemu and I am a sophomore at Harvard studying Computer Science.
+          I was born and raised in Addis Ababa, Ethiopia but I moved to the United States for College.
+          </p>
+        </div>
+
+        <div class="content-right">
+          <p class="body-text">
+          I am passionate about making products that improve the life of my society.
+          I am also very interested in the human experience and interaction with technology.
+          </p>
+        </div>
+
+      </div>
+      
     </div>
+
+  <!--Div components dedicated to give a snippet of the Projects page. -->  
     <div id = "content3">
-        <p></p>
+      <h3 class="subpage-head">
+          Projects
+      </h3> <br>  
+      <div class="content-left">
+        <h4> Heart Disease Predictor </h4>
+
+        <!-- Source: Card component from Bootstrap -->
+        <div class="card bg-secondary" style="width: 18rem;">
+          <img src="/images/IMG_2293.jpg" class="card-img-top" alt="App prototype">
+          <div class="card-body">
+            <h5 class="card-title">Listen to your heart</h5>
+            <p class="card-text body-text">How likely are you to have a heart disease? </p>
+            <a href="projects.html" class="btn btn-primary">See more</a>
+          </div>
+        </div>
+      </div> <br>
+
+      <div class="content-right">
+        <h4> Flight Tracker </h4>
+
+        <!-- Source: Card component from Bootstrap -->
+        <div class="card bg-secondary" style="width: 18rem;">
+          <img src="/images/flight.jpg" class="card-img-top" alt="Ethiopian Airlines">
+          <div class="card-body">
+            <h5 class="card-title">Flyyyy</h5>
+            <p class="card-text body-text">Buy and book a plane ticket in just a tap! </p>
+            <a href="projects.html" class="btn btn-primary">See more</a>
+          </div>
+        </div>
+
+      </div>
     </div>
+
+<!--Div components dedicated to give a snippet of the Blog page. --> 
+
+    <div id="content4"> 
+      <h3 class="subpage-head">
+        Blog
+      </h3> <br> 
+<!-- Card component for A book a week. Source: Materialize -->
+      <div class="row left-align transparent">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="in-img">
+              <img src="/images/anthills.jpg">
+              <span class="card-title">A Book a week.</span>
+            </div>
+            <div class="card-content">
+              <p class="body-text">As we are all in quarantine, it is a great opportunity to use our spare time
+                <br>to catch up on all the books that we have wanted to read. For the summer, 
+                <br>I plan to read a book a week and review it here. 
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="blog.html">Join me</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--Card component for Photography and Proverbs. Source: Materialize-->
+
+      <div class="row right-align transparent">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="in-img">
+              <img src="/images/photo.jpg">
+              <span class="card-title">Photography and Proverbs</span>
+            </div>
+            <div class="card-content">
+              <p class="body-text">I am vastly facinated by the beauty that surrounds me. I love photography 
+                              <br> and the hidden meaning behind phrases and words. Therefore, I like to take 
+                               <br>pictures of what I find beautiful or what inspires me and pair it with proverbs
+                               <br> that I feel expresses the image. 
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="blog.html">Explore</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--Div components dedicated to give a snippet of the contact form. -->   
+    <div id="content5"> 
+        <h3 class="subpage-head"> <br>
+            Contact Me
+        </h3> <br> 
+
+    <!--The contact form. Form template source: Bootstrap --> 
+        <form class="text-white">
+          <div class="form-group">
+            <label for=" exampleInputEmail1" class= "text-white">Full Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1" class= "text-white">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1" class= "text-white">Phone Number </label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group transparent text-white">
+            <label for="exampleFormControlTextarea1" class= "text-white">Your Message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <button type="submit button" class="btn btn-dark"> Send </button>
+        </form>
+     
+    </div>
+
+    <!--A footer to organize the different links with-in the page and to external social media profiles. -->
+    
+    <footer class="page-footer blue-grey darken-4 footer-body">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Kidist Alemu</h5>
+          </div>
+
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Find me on </h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="shorturl.at/cfnrK"><img class="img-icon" src="/images/fb.png"></a></li>
+              <li><a class="grey-text text-lighten-3" href="#!"><img class="img-icon" src="/images/ig.png"></a></li>
+              <li><a class="grey-text text-lighten-3" href="https://github.com/KidiH"><img class="img-icon" src="/images/gh.jpg"></a></li>
+              <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/kidist-alemu-19b904193"><img class="img-icon" src="/images/ldn.jpg"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="footer-copyright">
+        <div class="container">
+            © 2020 Copyright 
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
