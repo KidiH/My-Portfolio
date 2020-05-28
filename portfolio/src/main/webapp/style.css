@@ -155,6 +155,15 @@ h1, p, h4, h3{
     margin:0;
 }
 
+/*Indents html components to the left. */ 
+.left-align{
+  margin-left: 35px;
+}
+
+/*Indents html components to the right. */
+.right-align{
+  margin-right: 35px;
+}
 
 
 #greeting-container {
