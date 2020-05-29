@@ -77,6 +77,15 @@ Used to showcase a snippet of one part of the website. */
   background-size: cover;
   position: relative;
 }
+
+#content6 {
+  width: 100%;
+  height: 743px;
+  background-color: #34495E	;
+  color: #ECF8F8;
+  color: #ECF8F8;
+  position: relative;
+}
  
  
 /* Centers the name on the index.html file */
@@ -163,7 +172,7 @@ in-img{
  
 /* Removes the line break between h1, h3, and p components with other html components */
  
-h1, p, h4, h3{
+h1, p, h4, h3, hr, a{
     margin:0;
 }
  
