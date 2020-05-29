@@ -25,11 +25,7 @@ Used to showcase a snippet of one part of the website. */
  
 #content1 {
   width: 100%;
-  height: 743px;
-  background-color: #EDC4B3;
-  color: #ECF8F8;
-  width: 100%;
-  height: 743px;
+  height: 950px;
   background-color: #EDC4B3;
   color: #ECF8F8;
   background-image: url("/images/content2.jpg");
@@ -190,7 +186,7 @@ in-img{
  
 /* Removes the line break between h1, h3, and p components with other html components */
  
-h1, p, h4, h3, hr, a{
+h1, p, h4, h3, hr, a, h2{
     margin:0;
 }
  
@@ -218,7 +214,7 @@ h1, p, h4, h3, hr, a{
 }
  
  
-h1 {
+h1,h2 {
     text-align: center;
 }
  
