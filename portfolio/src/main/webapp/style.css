@@ -25,11 +25,7 @@ Used to showcase a snippet of one part of the website. */
  
 #content1 {
   width: 100%;
-  height: 743px;
-  background-color: #EDC4B3;
-  color: #ECF8F8;
-  width: 100%;
-  height: 743px;
+  height: 950px;
   background-color: #EDC4B3;
   color: #ECF8F8;
   background-image: url("/images/content2.jpg");
@@ -62,18 +58,16 @@ Used to showcase a snippet of one part of the website. */
 #content4 {
   width: 100%;
   height: 950px;
-  background-color: #BEE3DB;
-  color: #212d40;
-  background-image: url("/images/content4.jpg");
-  background-size: cover;
+  background-color: #4a5b77;
+  
   position: relative;
 }
  
 #content5 {
   width: 100%;
   height: 743px;
-  background-color: #BEE3DB;
-  background-image: url("/images/content5.jpg");
+  background-color: #EDC4B3;
+  color: #ECF8F8;
   background-size: cover;
   position: relative;
 }
@@ -136,6 +130,20 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
+.img-change1{
+    border-radius: 8px !important; 
+    height:300px !important;
+    width:300px !important;
+}
+
+.img-change2{
+    border-radius: 8px !important;
+    height:500px !important;
+    width: 300px !important; 
+}
+
+
  
 /* Image formating for the images in the body of the webpage.*/
 in-img{
@@ -162,6 +170,12 @@ in-img{
     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif; 
     font-size: 150%;
 }
+
+/*Font format for the text in the main body of the pages. */
+.body-text2{
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif; 
+    font-size: 100%;
+}
  
  /*Font format for the headings in the snippet portions. */
 .subpage-head{
@@ -172,18 +186,26 @@ in-img{
  
 /* Removes the line break between h1, h3, and p components with other html components */
  
-h1, p, h4, h3, hr, a{
+h1, p, h4, h3, hr, a, h2{
     margin:0;
 }
  
 /*Indents html components to the left. */ 
 .left-align{
   margin-left: 35px;
+  height: 33%;
+  width: 33%;
+  
+  
 }
  
 /*Indents html components to the right. */
 .right-align{
   margin-right: 35px;
+  height: 33%;
+  width: 33%;
+  
+  
 }
  
  
@@ -192,7 +214,7 @@ h1, p, h4, h3, hr, a{
 }
  
  
-h1 {
+h1,h2 {
     text-align: center;
 }
  
@@ -200,6 +222,7 @@ h1 {
     height: 100%;
     width: 100%;
     position:  relative;
+    overflow: scroll;
 }
  
 .wrapper {

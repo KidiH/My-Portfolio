@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="script.js"></script>
   </head>
 
@@ -45,9 +46,9 @@
     <div id="content1">
       <div class="wrapper">
         <br>
-        <h3 class="subpage-head">
+        <h2 class="subpage-head">
           ABOUT ME
-        </h3> <br>
+        </h2> <br>
         <img src="/images/IMG_0111.jpeg"><br>
         <div class="content-left">
           <p class="body-text">
@@ -68,10 +69,10 @@
     </div>
 
   <!--Div components dedicated to give a snippet of the Projects page. -->  
-    <div id = "content3">
-      <h3 class="subpage-head">
-          Projects
-      </h3> <br>  
+    <div id = "content3" class="fade-scroll">
+      <h2 class="subpage-head" style="color:white"> <br>
+          PROJECTS
+      </h2> <br>  
       <div class="content-left">
         <h4> Heart Disease Predictor </h4>
 
@@ -104,12 +105,12 @@
 
 <!--Div components dedicated to give a snippet of the Blog page. --> 
 
-    <div id="content4"> 
-      <h3 class="subpage-head">
-        Blog
-      </h3> <br> 
+    <div id="content4" class="fade-scroll"> 
+      <h2 class="subpage-head" style="color:white"> <br>
+        BLOG
+      </h2> <br> 
 <!-- Card component for A book a week. Source: Materialize -->
-      <div class="row left-align transparent">
+      <div class="row left-align">
         <div class="col s12 m7">
           <div class="card">
             <div class="in-img">
@@ -118,8 +119,8 @@
             </div>
             <div class="card-content">
               <p class="body-text">As we are all in quarantine, it is a great opportunity to use our spare time
-                <br>to catch up on all the books that we have wanted to read. For the summer, 
-                <br>I plan to read a book a week and review it here. 
+                to catch up on all the books that we have wanted to read. For the summer, 
+                I plan to read a book a week and review it here. 
               </p>
             </div>
             <div class="card-action">
@@ -131,7 +132,7 @@
 
 <!--Card component for Photography and Proverbs. Source: Materialize-->
 
-      <div class="row right-align transparent">
+      <div class="row right-align">
         <div class="col s12 m7">
           <div class="card">
             <div class="in-img">
@@ -140,9 +141,9 @@
             </div>
             <div class="card-content">
               <p class="body-text">I am vastly facinated by the beauty that surrounds me. I love photography 
-                              <br> and the hidden meaning behind phrases and words. Therefore, I like to take 
-                               <br>pictures of what I find beautiful or what inspires me and pair it with proverbs
-                               <br> that I feel expresses the image. 
+                              and the hidden meaning behind phrases and words. Therefore, I like to take 
+                                pictures of what I find beautiful or what inspires me and pair it with proverbs
+                                that I feel expresses the image. 
               </p>
             </div>
             <div class="card-action">
@@ -154,31 +155,34 @@
     </div>
 <!--Div components dedicated to give a snippet of the contact form. -->   
     <div id="content5"> 
-        <h3 class="subpage-head"> <br>
-            Contact Me
-        </h3> <br> 
-
-    <!--The contact form. Form template source: Bootstrap --> 
-        <form class="text-white">
-          <div class="form-group">
-            <label for=" exampleInputEmail1" class= "text-white">Full Name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1" class= "text-white">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1" class= "text-white">Phone Number </label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </div>
-          <div class="form-group transparent text-white">
-            <label for="exampleFormControlTextarea1" class= "text-white">Your Message</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          <button type="submit button" class="btn btn-dark"> Send </button>
-        </form>
-     
+        <div class="parent-content">
+        <div class="wrapper">
+            <h2>
+                CONTACT ME
+            </h2>
+            <br>
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Name</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Phone Number</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Message</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          
+        </div>
+    </div>
     </div>
 
     <!--A footer to organize the different links with-in the page and to external social media profiles. -->
