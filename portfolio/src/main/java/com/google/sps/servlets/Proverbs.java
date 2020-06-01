@@ -32,13 +32,13 @@ public final class RandomProverbServlet extends HttpServlet {
     public void init() {
       proverbs = new ArrayList<>();
       proverbs.add(
-        "Regret, like a tail, comes at the end.");
+        "A single stick may smoke, but it will not burn");
       proverbs.add(
-        "A belt fastened while running will come undone while running.");
+        "Do not blame God for having created the tiger, but thank Him for not giving it wings");
       proverbs.add(
-        "As the wound inflames the finger, so the thought inflames the mind.");
+        "Fifty lemons are a load for one person, but for fifty persons they are perfume.");
       proverbs.add(
-        "When webs of a spider join together, they can trap a lion.");
+        "It is foolhardy to start a fire just to see the flames.");
   }
 
   // Function to randomly reference and display the proverbs
