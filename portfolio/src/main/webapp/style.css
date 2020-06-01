@@ -1,38 +1,38 @@
 /* This is a style sheet for the components of the html pages. */
-
+ 
 /*Formats lists to appear in straight line without bullets*/
 ul, li{
   display: inline;
   word-spacing: 40px;
 }
-
+ 
 /*Initially created navigation bar*/
-
+ 
 .top-nav-bar {
     text-align: center;
     padding: 25px;
     background-color: #696773;
 }
-
+ 
 /*Sets the font style of the links on the navigation bar*/
-
+ 
 .navbar-nav a {
   font-family: 'Merriweather', serif;
 }
-
+ 
 /*The styling below for "contentx" are stylings of a div element to span the whole screen at a time. 
 Used to showcase a snippet of one part of the website. */
-
+ 
 #content1 {
   width: 100%;
-  height: 743px;
+  height: 950px;
   background-color: #EDC4B3;
   color: #ECF8F8;
   background-image: url("/images/content2.jpg");
   background-size: cover;
   position: relative;
 }
-
+ 
 #content2 {
   width: 100%;
   height: 743px;
@@ -44,7 +44,7 @@ Used to showcase a snippet of one part of the website. */
   justify-content: center;
   align-items: center; 
 }
-
+ 
 #content3 {
   width: 100%;
   height: 743px;
@@ -54,35 +54,42 @@ Used to showcase a snippet of one part of the website. */
   background-size: cover;
   position: relative;
 }
-
+ 
 #content4 {
-    width: 100%;
+  width: 100%;
   height: 950px;
-  background-color: #BEE3DB;
-  color: #212d40;
-  background-image: url("/images/content4.jpg");
-  background-size: cover;
+  background-color: #4a5b77;
+  
   position: relative;
 }
-
+ 
 #content5 {
   width: 100%;
   height: 743px;
-  background-color: #BEE3DB;
-  background-image: url("/images/content5.jpg");
+  background-color: #EDC4B3;
+  color: #ECF8F8;
   background-size: cover;
   position: relative;
 }
 
-
-/* Centers the name on the index.html file centerally */
-
+#content6 {
+  width: 100%;
+  height: 743px;
+  background-color: #34495E	;
+  color: #ECF8F8;
+  color: #ECF8F8;
+  position: relative;
+}
+ 
+ 
+/* Centers the name on the index.html file */
+ 
 .name{
     flex: 0 120px 240px;
 }
-
+ 
 /*Styling for a div component that wraps around the actual items/elements of the snippet portion. */
-
+ 
 wrapper {
   height: 321px;
   width: 50%;
@@ -95,7 +102,7 @@ wrapper {
 }
  
 /*Styling for a div component to align to the right. */
-
+ 
 .content-right {
     height: 15%;
     width: 35%;
@@ -105,7 +112,7 @@ wrapper {
 }
  
 /*Styling for a div component to align to the left. */
-
+ 
 .content-left {
     height: 15%;
     width: 35%;
@@ -113,7 +120,7 @@ wrapper {
     padding: 20px;
     margin-left: 35px;
 }
-
+ 
 /* Size and round the profile picture */
 img {
     border-radius: 50%;
@@ -124,30 +131,50 @@ img {
     margin-right: auto;
 }
 
+.img-change1{
+    border-radius: 8px !important; 
+    height:300px !important;
+    width:300px !important;
+}
+
+.img-change2{
+    border-radius: 8px !important;
+    height:500px !important;
+    width: 300px !important; 
+}
+
+
+ 
 /* Image formating for the images in the body of the webpage.*/
 in-img{
     height: 300px;
     width: 275px;
     display: block;
 }
-
+ 
 /* Size and round the social media icons on footer. */
 .img-icon {
     border-radius: 50%;
     height: 50px;
     width: 50px;
 }
-
+ 
 /*Sets the background image to be semi-transparent. */
-
+ 
 .transparent{
   opacity: 0.5;
 }
-
+ 
 /*Font format for the text in the main body of the pages. */
 .body-text{
     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif; 
     font-size: 150%;
+}
+
+/*Font format for the text in the main body of the pages. */
+.body-text2{
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif; 
+    font-size: 100%;
 }
  
  /*Font format for the headings in the snippet portions. */
@@ -155,28 +182,57 @@ in-img{
     text-align: center;
     font-family: Verdana, sans-serif
 }
-
-
+ 
+ 
 /* Removes the line break between h1, h3, and p components with other html components */
-
-h1, p, h4, h3{
+ 
+h1, p, h4, h3, hr, a, h2{
     margin:0;
 }
-
+ 
 /*Indents html components to the left. */ 
 .left-align{
   margin-left: 35px;
+  height: 33%;
+  width: 33%;
+  
+  
 }
-
+ 
 /*Indents html components to the right. */
 .right-align{
   margin-right: 35px;
+  height: 33%;
+  width: 33%;
+  
+  
 }
-
-
+ 
+ 
 #greeting-container {
-  margin-top: 20px;
+    margin-top: 20px;
 }
-
-
-
+ 
+ 
+h1,h2 {
+    text-align: center;
+}
+ 
+.parent-content {
+    height: 100%;
+    width: 100%;
+    position:  relative;
+    overflow: scroll;
+}
+ 
+.wrapper {
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  
+}
