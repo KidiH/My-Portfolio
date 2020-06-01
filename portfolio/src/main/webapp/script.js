@@ -56,5 +56,5 @@ async function getRandomProverb(){
     // Convert the fetched proverb which is a promise to text type
     const proverb = await response.text();
     // Pass the proverb into the DOM 
-    document.getElementById('quote-container').innerText = proverb;
+    document.getElementById('proverb-container').innerText = proverb;
 }
