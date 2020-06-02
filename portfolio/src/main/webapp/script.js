@@ -47,3 +47,16 @@ $(function() {
                 });
                 
             });
+
+// Function to fetch proverbs from server and pass to DOM
+async function getRandomProverb(){
+    // Fetch proverb from the server
+    const response = await fetch('/random-proverb');
+    // Convert the fetched proverb which is a promise to text type
+    const proverb = await response.text();
+    // Pass the proverb into the DOM 
+    document.getElementById('proverb-container').innerText = proverb;
+}
+
+
+
