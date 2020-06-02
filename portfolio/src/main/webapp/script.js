@@ -60,10 +60,7 @@ async function getRandomProverb(){
 
 function printComments() {
   fetch('/data').then(response => response.json()).then((comment) => {
-    // stats is an object, not a string, so we have to
-    // reference its fields to create HTML content
-    console.log(comment)
-    console.log(comment)
+    // Display the contents of comment in the page
     const commentListElement = document.getElementById('comment-container');
     commentListElement.innerHTML = comment;
   });
