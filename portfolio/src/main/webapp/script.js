@@ -58,5 +58,14 @@ async function getRandomProverb(){
     document.getElementById('proverb-container').innerText = proverb;
 }
 
-
+function printComments() {
+  fetch('/data').then(response => response.json()).then((comment) => {
+    // stats is an object, not a string, so we have to
+    // reference its fields to create HTML content
+    console.log(comment)
+    console.log(comment)
+    const commentListElement = document.getElementById('comment-container');
+    commentListElement.innerHTML = comment;
+  });
+}
 
