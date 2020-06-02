@@ -27,28 +27,25 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns a random proverb. */
 @WebServlet("/random-proverb")
 public final class RandomProverbServlet extends HttpServlet {
-    private List<String> proverbs;
-
-// Hardcoded list of the random proverbs
+  private List<String> proverbs;
+    
+//  Hardcoded list of the random proverbs
     @Override
-    public void init() {
-      proverbs = new ArrayList<>();
-      proverbs.add(
+  public void init() {
+    proverbs = new ArrayList<>();
+    proverbs.add(
         "A single stick may smoke, but it will not burn");
-      proverbs.add(
+    proverbs.add(
         "Do not blame God for having created the tiger, but thank Him for not giving it wings");
-      proverbs.add(
+    proverbs.add(
         "Fifty lemons are a load for one person, but for fifty persons they are perfume.");
-      proverbs.add(
+    proverbs.add(
         "It is foolhardy to start a fire just to see the flames.");
   }
-
   // Function to randomly reference and display the proverbs
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String proverb = proverbs.get((int) (Math.random() * proverbs.size()));
-
     response.setContentType("text/html;");
     response.getWriter().println(proverb);
   }
