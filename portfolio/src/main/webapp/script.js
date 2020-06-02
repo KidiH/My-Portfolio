@@ -49,7 +49,6 @@ $(function() {
             });
 
 // Function to fetch proverbs from server and pass to DOM
-
 async function getRandomProverb(){
     // Fetch proverb from the server
     const response = await fetch('/random-proverb');
@@ -58,3 +57,6 @@ async function getRandomProverb(){
     // Pass the proverb into the DOM 
     document.getElementById('proverb-container').innerText = proverb;
 }
+
+
+
