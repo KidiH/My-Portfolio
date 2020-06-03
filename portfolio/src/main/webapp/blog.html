@@ -17,7 +17,7 @@
     <script src="script.js"></script>
   </head>
 
-  <body>
+  <body onload='printComments()'>
 
       <!--The navigation bar. Source: Bootstrap -->
 
@@ -79,9 +79,28 @@
                 <br> Although it is well crafted, Achebe's fifth book found it hard to follow the momentum gained by the novel giants of the preceding first four books.
                 </p>
                 </div>
-        </div>
-        
+        </div> 
+      </div>
 
+<!-- Comment Form -->
+      <div id="content6">  
+        <div class="media">
+            <div id="comment">
+              <form action="/data" method="POST">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name</label>
+                  <input type="text" name="id-name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Comment</label>
+                  <textarea class="form-control" name= "text-input" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <input type="submit" />
+                </form>
+                  <p id="user-message"></p> 
+                  <ul id="history"></ul>
+            </div>
+        </div>
     </div>
 
     <hr style="color: white">
