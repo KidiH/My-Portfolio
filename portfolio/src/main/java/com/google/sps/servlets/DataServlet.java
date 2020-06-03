@@ -14,6 +14,9 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +26,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import java.util.Date;
+
+
 
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
@@ -45,10 +50,20 @@ public class DataServlet extends HttpServlet {
     String userName = request.getParameter("id-name");
     String text = request.getParameter("text-input");
     
+    //Add user comments to the comment variable
     comment.add(text);
-    
+     
+    //Create Entity to store comments 
+    Entity commentEntity = new Entity("Fullcomment");
+    commentEntity.setProperty("comment", comment);
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(commentEntity);
+
+    //Redirect to the same page
     response.sendRedirect("/blog.html");
     response.getWriter().println(comment);
+
   }
 
   
