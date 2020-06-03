@@ -72,3 +72,9 @@ async function printComments() {
 });
 }
 
+/** Creates an <p> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('p');
+  liElement.innerText = text;
+  return liElement;
+}
