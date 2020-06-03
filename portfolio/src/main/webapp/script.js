@@ -58,11 +58,17 @@ async function getRandomProverb(){
     document.getElementById('proverb-container').innerText = proverb;
 }
 
-function printComments() {
-  fetch('/data').then(response => response.json()).then((comment) => {
-    // Display the contents of comment in the page
-    const commentListElement = document.getElementById('comment-container');
-    commentListElement.innerHTML = comment;
-  });
+async function printComments() {
+  
+    // Fetch comments from the server
+    
+    fetch('/data').then(response => response.json()).then((comment) => {
+      const commentElements = document.getElementById('user-message');
+
+      // Runs a loop for each content of the comments array to be printed out
+      comment.forEach((comments) => {
+        commentElements.appendChild(createListElement(comments));
+      })
+});
 }
 
