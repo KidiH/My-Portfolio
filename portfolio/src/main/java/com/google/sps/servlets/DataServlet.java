@@ -30,6 +30,7 @@ import java.util.Date;
 public class DataServlet extends HttpServlet {
   
   private List<String> comment = new ArrayList<>(); 
+
   
 
   @Override
@@ -44,7 +45,6 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String userName = request.getParameter("id-name");
     String text = request.getParameter("text-input");
-    
     comment.add(text);
     
     response.sendRedirect("/blog.html");
