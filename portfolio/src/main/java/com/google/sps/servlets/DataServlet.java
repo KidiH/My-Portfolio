@@ -20,6 +20,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.appengine.api.datastore.FetchOptions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,14 +38,23 @@ import java.util.Date;
 public class DataServlet extends HttpServlet {
   
   private List<String> comment = new ArrayList<>(); 
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
+    int max = maxComments(request);
+    if(max <= 0){
+        response.setContentType("text/html");
+        response.getWriter().println("Please enter a valid Integer");
+        return;
+    }  
+
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();  
     Query query = new Query("Fullcomment");
-    PreparedQuery results = datastore.prepare(query);
+    List<Entity> results = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(max));
 
     List<String> comments = new ArrayList<String>();
-    for (Entity entity : results.asIterable()){
+    for (Entity entity : results){
         String remark = (String) entity.getProperty("comment");
         comments.add(remark);
     }
@@ -52,20 +62,19 @@ public class DataServlet extends HttpServlet {
     String json = new Gson().toJson(comments);
     response.setContentType("application/json");
     response.getWriter().println(json);
-  }
+  }    
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String userName = request.getParameter("id-name");
+   
     String text = request.getParameter("text-input");
-    long timestamp = System.currentTimeMillis();
     //Add user comments to the comment variable
     comment.add(text);
      
     //Create Entity to store comments 
     Entity commentEntity = new Entity("Fullcomment");
     commentEntity.setProperty("comment", text);
-    
+   
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);
@@ -73,7 +82,16 @@ public class DataServlet extends HttpServlet {
     //Redirect to the same page
     response.sendRedirect("/blog.html");
     response.getWriter().println(comment);
-
   }
-
+  
+  private int maxComments(HttpServletRequest request){
+    String maxString = request.getParameter("max");
+    try{
+      return Integer.parseInt(maxString);
+    } catch(NumberFormatException e){
+        System.err.println("Could not convert to integer");
+        return -1;
+      }
+  }
+  
 }
