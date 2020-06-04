@@ -82,6 +82,7 @@ public class DataServlet extends HttpServlet {
     //Redirect to the same page
     response.sendRedirect("/blog.html");
     response.getWriter().println(comment);
+
   }
   
   private int maxComments(HttpServletRequest request){
@@ -95,3 +96,4 @@ public class DataServlet extends HttpServlet {
   }
   
 }
+
