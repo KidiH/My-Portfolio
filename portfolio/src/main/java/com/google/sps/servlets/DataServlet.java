@@ -37,6 +37,7 @@ import java.util.Date;
 public class DataServlet extends HttpServlet {
   
   private List<String> comment = new ArrayList<>(); 
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();  
@@ -74,6 +75,8 @@ public class DataServlet extends HttpServlet {
     response.sendRedirect("/blog.html");
     response.getWriter().println(comment);
 
+
   }
 
 }
+  
