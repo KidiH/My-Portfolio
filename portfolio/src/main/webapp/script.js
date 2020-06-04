@@ -61,11 +61,8 @@ async function getRandomProverb(){
 function printComments() {
   
     // Fetch comments from the server
-    
-    
     fetch('/data?max='+document.getElementById('quantity').value).then(response => response.json()).then((comment) => {
       const commentElements = document.getElementById('user-message');
-        console.log(comment);
       // Runs a loop for each content of the comments array to be printed out
       comment.forEach((comments) => {
         commentElements.appendChild(createListElement(comments));
