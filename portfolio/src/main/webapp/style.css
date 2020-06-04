@@ -236,3 +236,7 @@ h1,h2 {
   margin: auto;
   
 }
+
+.comment-section{
+    overflow: scroll;
+}
