@@ -100,9 +100,14 @@
                 <label>Maximum Comments</label>
                 <input type="number" id="quantity" name="max">
                 <button onClick="printComments()"> Submit </button>
-                
-                <h5> <u> Comments </u> </h5>
-                <p id="user-message"></p> 
+                <br>
+                <label> Delete all comments </label>
+                <button onClick="deleteComments()"> Delete </button>
+
+                <div name="comment-section">    
+                  <h5> <u> Comments </u> </h5>
+                  <p id="user-message"></p> 
+                </div>
             </div>
         </div>
     </div>
