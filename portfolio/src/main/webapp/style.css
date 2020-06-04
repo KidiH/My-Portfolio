@@ -1,3 +1,4 @@
+
 /* This is a style sheet for the components of the html pages. */
  
 /*Formats lists to appear in straight line without bullets*/
@@ -234,5 +235,4 @@ h1,h2 {
   bottom: 0;
   right: 0;
   margin: auto;
-  
 }
