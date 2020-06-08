@@ -12,6 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
 /**
  * Adds a random greeting to the page.
  */
@@ -81,4 +84,27 @@ function deleteComments(){
   // Fetch comments from the server
     let request = new Request('/delete-data', {method:"POST"});
     fetch(request).then(unused => printComments());
+}
+
+/** Creates a chart and adds it to the page. */
+function drawChart() {
+  const data = new google.visualization.DataTable();
+  data.addColumn('string', 'Book');
+  data.addColumn('number', 'Hours');
+        data.addRows([
+          ['Anthills on the Savannah', 10],
+          ['Small Great Things', 11],
+          ['All the Bright Places', 9]
+
+        ]);
+
+  const options = {
+    'title': 'Reads',
+    'width':600,
+    'height':600
+  };
+
+  const chart = new google.visualization.BarChart(
+      document.getElementById('chart-container'));
+  chart.draw(data, options);
 }
