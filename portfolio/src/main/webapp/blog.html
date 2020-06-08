@@ -97,8 +97,17 @@
                 </div>
                 <input type="submit" />
                 </form>
+                <label>Maximum Comments</label>
+                <input type="number" id="quantity" name="max">
+                <button onClick="printComments()"> Submit </button>
+                <br>
+                <label> Delete all comments </label>
+                <button onClick="deleteComments()"> Delete </button>
+
+                <div name="comment-section">    
+                  <h5> <u> Comments </u> </h5>
                   <p id="user-message"></p> 
-                  <ul id="history"></ul>
+                </div>
             </div>
         </div>
     </div>

@@ -235,4 +235,9 @@ h1,h2 {
   bottom: 0;
   right: 0;
   margin: auto;
+
+}
+
+.comment-section{
+    overflow: scroll;
 }
