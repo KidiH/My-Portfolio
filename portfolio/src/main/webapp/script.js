@@ -14,6 +14,9 @@
 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChart1);
+
+
 
 /**
  * Adds a random greeting to the page.
@@ -87,7 +90,7 @@ function deleteComments(){
 }
 
 /** Creates a chart and adds it to the page. */
-function drawChart() {
+function drawChart1() {
   const data = new google.visualization.DataTable();
   data.addColumn('string', 'Book');
   data.addColumn('number', 'Hours');
@@ -107,4 +110,27 @@ function drawChart() {
   const chart = new google.visualization.BarChart(
       document.getElementById('chart-container'));
   chart.draw(data, options);
+}
+
+/** Fetches songs data and uses it to create a chart. */
+function drawChart() {
+  fetch('/song-data').then(response => response.json())
+  .then((songWords) => {
+    const data = new google.visualization.DataTable();
+    data.addColumn('string', 'Song');
+    data.addColumn('number', 'Number of "Yuhs"');
+    Object.keys(songWords).forEach((song) => {
+      data.addRow([song, songWords[song]]);
+    });
+ 
+    const options = {
+      'title': 'Number of YUHs per song',
+      'width':600,
+      'height':500
+    };
+
+    const chart = new google.visualization.LineChart(
+        document.getElementById('song-chart-container'));
+    chart.draw(data, options);
+  });
 }
