@@ -1,4 +1,3 @@
-// Copyright 2019 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,15 +11,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 package com.google.sps.servlets;
+import com.google.appengine.api.datastore.Blob;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Query;
 import com.google.gson.Gson;
+import com.google.sps.data.TotalCommentProtos.Comment;
+import com.google.sps.data.TotalCommentProtos.TotalComments;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +32,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   private List<String> comment = new ArrayList<>();
+  private static final Logger LOGGER = Logger.getLogger(DataServlet.class.getName());
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     int max = maxComments(request);
@@ -41,11 +45,14 @@ public class DataServlet extends HttpServlet {
     Query query = new Query("Fullcomment");
     List<Entity> results = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(max));
     List<String> comments = new ArrayList<String>();
+    // Builds comments protobuf and adds all stored comment protobufs to it
+    TotalComments.Builder commentsBuilder = TotalComments.newBuilder();
     for (Entity entity : results) {
-      String remark = (String) entity.getProperty("comment");
-      comments.add(remark);
+      Comment commentProto = Comment.parseFrom(((Blob) entity.getProperty("proto")).getBytes());
+      commentsBuilder.addComments(commentProto);
     }
-    String json = new Gson().toJson(comments);
+    TotalComments newcomments = commentsBuilder.build();
+    String json = new Gson().toJson(newcomments);
     response.setContentType("application/json");
     response.getWriter().println(json);
   }
@@ -54,9 +61,14 @@ public class DataServlet extends HttpServlet {
     String text = request.getParameter("text-input");
     // Add user comments to the comment variable
     comment.add(text);
+    Comment.Builder newcomment = Comment.newBuilder();
+    newcomment.setData(text);
+    Comment commentBuilt = newcomment.build();
+    // Serialize comment into a Blob
+    Blob commentBlob = new Blob(commentBuilt.toByteArray());
     // Create Entity to store comments
     Entity commentEntity = new Entity("Fullcomment");
-    commentEntity.setProperty("comment", text);
+    commentEntity.setProperty("proto", commentBlob);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);
     // Redirect to the same page
