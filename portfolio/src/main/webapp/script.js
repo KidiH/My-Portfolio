@@ -67,24 +67,36 @@ async function getRandomProverb(){
 }
 
 function printComments() {
-  
     // Fetch comments from the server
     fetch('/data?max='+document.getElementById('quantity').value).then(response => response.json()).then((comment) => {
       const commentElements = document.getElementById('user-message');
 
     // Runs a loop for each content of the comments array to be printed out
       for (var i = 0; i < comment.comments_.length; i++) {
-          commentElements.appendChild(createListElement(comment.comments_[i]));
-
+          //commentElements.appendChild(createheadElement(comment.comments_[i]));
+          commentElements.appendChild(createListElement(comment.comments_[i]));  
         }
 });
 }
 
 /** Creates an <p> element containing text. */
 function createListElement(text) {
+  const liElem = document.createElement('li');
+
+  const heading = document.createElement('h5');
+  if(String.fromCharCode.apply(String, text.name_.bytes) === ""){
+      heading.innerText = "Anonymous";
+  }
+  else{
+  heading.innerText = String.fromCharCode.apply(String, text.name_.bytes);
+  }  
+
   const liElement = document.createElement('p');
   liElement.innerText = String.fromCharCode.apply(String, text.data_.bytes);
-  return liElement;
+  
+  liElem.appendChild(heading);
+  liElem.appendChild(liElement);
+  return liElem;
 }
 
 function deleteComments(){
