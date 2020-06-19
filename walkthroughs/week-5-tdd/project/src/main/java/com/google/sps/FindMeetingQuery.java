@@ -13,6 +13,8 @@
 // limitations under the License.
 package com.google.sps;
 import java.util.ArrayList;
+import java.io.*;  
+import java.util.*; 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -42,6 +44,36 @@ public final class FindMeetingQuery {
     timeOptions = getPossibleTimes(occupiedTime, request);
     mandatoryOptions = getPossibleTimes(mandatoryTime, request);
     // Check if the returned times work for all mandatory and optional attendees
+    if (timeOptions.isEmpty() && !mandatoryOptions.isEmpty() && request.getOptionalAttendees().size() > 1) {  
+      List<TimeRange> mandatoryTime2 = new ArrayList<TimeRange>();
+      Collection<TimeRange> optionsReserve = new ArrayList<TimeRange>();
+      // Store a reserve of the original time options
+      optionsReserve = mandatoryOptions;
+      // Copy the occupied time slots into a new variable for manipulation 
+      mandatoryTime2 = mandatoryTime;
+      // Go through each event the optional attendees have and add it to the total
+      // occupied times. If the no time is returned, remove the input time. 
+      Collection<String> optionalAtt = request.getOptionalAttendees();
+      for (String att : optionalAtt) { 
+        for (Event event : events) {
+          if (event.getAttendees().contains(att)) {  
+            mandatoryTime2.add(event.getWhen()); 
+            Collections.sort(mandatoryTime2, TimeRange.ORDER_BY_START);
+            mandatoryOptions = getPossibleTimes(mandatoryTime2, request);
+             if (mandatoryOptions.isEmpty()){
+              mandatoryTime2.remove(event.getWhen());
+             }
+             else {
+               mandatoryTime.add(event.getWhen());  
+             }
+          }
+        }  
+      }
+      if (mandatoryOptions.isEmpty()){
+          mandatoryOptions = optionsReserve;
+      }
+    }
+ 
     if (mandatoryOptions.isEmpty()) {
       return mandatoryOptions;
     } else if (!mandatoryOptions.isEmpty() && timeOptions.isEmpty()) {
@@ -53,6 +85,7 @@ public final class FindMeetingQuery {
       return timeOptions;
     }
   }
+
   // Output all of the meeting times that work for the collected time options
   public Collection<TimeRange> getPossibleTimes(List<TimeRange> allTime, MeetingRequest request) {
     Collection<TimeRange> givenOptions = new ArrayList<TimeRange>();
@@ -73,4 +106,5 @@ public final class FindMeetingQuery {
     }
     return givenOptions;
   }
+ 
 }
