@@ -13,6 +13,8 @@
 // limitations under the License.
 package com.google.sps;
 import java.util.ArrayList;
+import java.io.*;  
+import java.util.*; 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -22,26 +24,56 @@ public final class FindMeetingQuery {
     List<TimeRange> mandatoryTime = new ArrayList<TimeRange>();
     Collection<TimeRange> mandatoryOptions = new ArrayList<TimeRange>();
     Collection<TimeRange> timeOptions = new ArrayList<TimeRange>();
-    // Get all the time ranges the requested attendees are occupied on
+    // Get all the time ranges the requested attendees are occupied on.
     for (Event event : events) {
       if (!Collections.disjoint(event.getAttendees(), request.getAttendees())) {
         occupiedTime.add(event.getWhen());
         mandatoryTime.add(event.getWhen());
       }
     }
-    // Get optional attendees' occupied times
+    // Get optional attendees' occupied times.
     for (Event event : events) {
       if (!Collections.disjoint(event.getAttendees(), request.getOptionalAttendees())) {
         occupiedTime.add(event.getWhen());
       }
     }
-    // Sort the occupied times in order of start time
+    // Sort the occupied times in order of start time.
     Collections.sort(occupiedTime, TimeRange.ORDER_BY_START);
     Collections.sort(mandatoryTime, TimeRange.ORDER_BY_START);
-    // Output the possible meeting times for each occupied time
+    // Output the possible meeting times for each occupied time.
     timeOptions = getPossibleTimes(occupiedTime, request);
     mandatoryOptions = getPossibleTimes(mandatoryTime, request);
-    // Check if the returned times work for all mandatory and optional attendees
+    // Check if the returned times work for all mandatory and optional attendees.
+    if (timeOptions.isEmpty() && !mandatoryOptions.isEmpty() && request.getOptionalAttendees().size() > 1) {  
+      List<TimeRange> mandatoryTimeCopy = new ArrayList<TimeRange>();
+      Collection<TimeRange> optionsReserve = new ArrayList<TimeRange>();
+      // Store a reserve of the original time options.
+      optionsReserve = mandatoryOptions;
+      // Copy the occupied time slots into a new variable for manipulation. 
+      mandatoryTimeCopy = mandatoryTime;
+      // Go through each event the optional attendees have and add it to the total
+      // occupied times. If the an empty time interval is returned, remove the added time. 
+      Collection<String> optionalAtt = request.getOptionalAttendees();
+      for (String att : optionalAtt) { 
+        for (Event event : events) {
+          if (event.getAttendees().contains(att)) {  
+            mandatoryTimeCopy.add(event.getWhen()); 
+            Collections.sort(mandatoryTimeCopy, TimeRange.ORDER_BY_START);
+            mandatoryOptions = getPossibleTimes(mandatoryTimeCopy, request);
+             if (mandatoryOptions.isEmpty()){
+              mandatoryTimeCopy.remove(event.getWhen());
+             }
+             else {
+               mandatoryTime.add(event.getWhen());  
+             }
+          }
+        }  
+      }
+      if (mandatoryOptions.isEmpty()){
+          mandatoryOptions = optionsReserve;
+      }
+    }
+ 
     if (mandatoryOptions.isEmpty()) {
       return mandatoryOptions;
     } else if (!mandatoryOptions.isEmpty() && timeOptions.isEmpty()) {
@@ -53,7 +85,8 @@ public final class FindMeetingQuery {
       return timeOptions;
     }
   }
-  // Output all of the meeting times that work for the collected time options
+
+  // Output all of the meeting times that work for the collected time options.
   public Collection<TimeRange> getPossibleTimes(List<TimeRange> allTime, MeetingRequest request) {
     Collection<TimeRange> givenOptions = new ArrayList<TimeRange>();
     int endTimeOption = TimeRange.START_OF_DAY;
@@ -67,10 +100,11 @@ public final class FindMeetingQuery {
       }
     }
     // Case 2: If there is vacant time between an event's end time
-    // and the next event's start time
+    // and the next event's start time.
     if ((TimeRange.END_OF_DAY - endTimeOption) >= request.getDuration()) {
       givenOptions.add(TimeRange.fromStartEnd(endTimeOption, TimeRange.END_OF_DAY, true));
     }
     return givenOptions;
   }
+ 
 }
